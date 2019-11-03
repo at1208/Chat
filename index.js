@@ -1,6 +1,7 @@
-const express = require('express');
-const app = express();
 
+const app = require('express')();
+const server = require('http').createServer(app)
+const io = require('socket.io')(server)
 
 const Port = process.env.PORT || 5000
-app.listen(Port, () => console.log(`Listening to ${Port}`))
+server.listen(Port, () => console.log(`Listening to ${Port}`))
